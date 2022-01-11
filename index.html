@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+
+  body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      background: linear-gradient(to right, white, #d1d0d0);
+
+  }
+
+  .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 1em;
+      width: 400px;
+      height: 50vh;
+      background-color: white;
+      /* border:1px solid #000000; */
+      box-shadow: rgb(12, 12, 12) 0px 25px 50px -10px;
+
+  }
+
+  #btn {
+      width: 43%;
+      padding: 4px 0;
+      border-radius: 5px;
+      border: 2px solid yellow;
+      background-color: transparent;
+      color: #000000;
+      font-weight: bold;
+
+  }
+
+  #btn:hover {
+      background-color: yellow;
+      color: #000000;
+
+  }
+
+  #inp {
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #000000;
+
+  }
+
+  #output {
+      font-size: 20px;
+      font-weight: bold;
+      
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h2>fizz-Buzz</h2>
+
+  <input type="number" id="inp">
+  <p> Please click below button to generate fizz-Buzz series</p>
+  <button id="btn" onclick="game()">Click</button>
+  
+</div>
+
+<p id="output"></p>
+
+
+<script>
+  let btn = document.getElementById('btn');
+
+  let output = document.getElementById('output');
+
+  let input = document.querySelector("#inp");
+
+
+  function game(){
+      let n = input.value;
+      let liRef = document.createElement("li");
+
+      if(n == 0){
+          output.innerHTML = `<span style="color:red;">Please enter any number!</span>`;
+      }
+      else{
+
+          for (let i = 1; i <= n; i++) {
+
+
+          let liRef = document.createElement('li');
+
+              if (i % 3 == 0 && i % 5 == 0) {
+                  liRef.innerText = "fizz-buzz";
+              }
+              else if (i % 3 == 0) {
+                  liRef.innerText = "fizz";
+              }
+              else if (i % 5 == 0) {
+                  liRef.innerText = "Buzz";
+              }
+              else {
+                  liRef.innerText = i;
+              }
+              output.style.padding = "5em";
+              output.appendChild(liRef);
+
+          }
+          
+          
+
+      }
+      
+      
+  }
+</script>
+</body>
+</html>
